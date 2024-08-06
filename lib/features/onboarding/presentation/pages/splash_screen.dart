@@ -26,7 +26,7 @@ class _SplashScreenViewState extends State<SplashScreenView> {
       () =>
           // userResult.fold((l) {
           navigator.pushReplacementNamed(
-        RouteName.onboarding,
+        RouteName.welcomeScreen,
       )
       // }, (user) {
       //   BlocProvider.of<ChianUserBloc>(context).add(
@@ -49,25 +49,15 @@ class _SplashScreenViewState extends State<SplashScreenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-            // gradient: LinearGradient(
-            //   colors: [
-            //     AppColors.containerGradient2,
-            //     AppColors.containerGradient1,
-            //   ],
-            // ),
-            ),
+      body: Center(
         child: Center(
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(AppAssets.splashScreenImage),
-                const Gap(12),
-                SvgPicture.asset(AppAssets.doIt),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(AppAssets.multiColorDots),
+              const Gap(12),
+              SvgPicture.asset(AppAssets.doIt),
+            ],
           ),
         ),
       ),

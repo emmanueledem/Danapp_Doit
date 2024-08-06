@@ -51,21 +51,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCLTz9UEzh73iuiIz3o9idX9ZxTh95AcQ8',
-    appId: '1:704330958916:android:2278f41c43aa9355ad1411',
-    messagingSenderId: '704330958916',
-    projectId: 'fagopay-ce8c4',
-    storageBucket: 'fagopay-ce8c4.appspot.com',
+    apiKey: '',
+    appId: '',
+    messagingSenderId: '',
+    projectId: '',
+    storageBucket: '',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBnXc4V9fA7R_FmDEWoPRjqPbn3XVu8GEA',
-    appId: '1:704330958916:ios:f597900141bc4be2ad1411',
-    messagingSenderId: '704330958916',
-    projectId: 'fagopay-ce8c4',
-    storageBucket: 'fagopay-ce8c4.appspot.com',
-    iosClientId:
-        '704330958916-sk5jvujrvg590t7lm6oskc4kq7cvlv02.apps.googleusercontent.com',
-    iosBundleId: 'net.fagopay.fagopay',
+    apiKey: '',
+    appId: '',
+    messagingSenderId: '',
+    projectId: '',
+    storageBucket: '',
+    iosClientId: '',
+    iosBundleId: '',
   );
 }

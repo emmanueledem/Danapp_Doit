@@ -12,6 +12,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const SplashScreenView(),
       );
 
+    case RouteName.welcomeScreen:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const WelcomeScreenView(),
+      );
+
+    case RouteName.createAccount:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const CreateAccountView(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(

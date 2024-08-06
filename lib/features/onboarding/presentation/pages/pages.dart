@@ -1,2 +1,2 @@
 export 'splash_screen.dart';
-export 'welcome.dart';
+export 'welcome_screen.dart';
