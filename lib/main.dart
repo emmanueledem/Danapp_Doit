@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:danapp_doit/app/app.dart';
 import 'package:danapp_doit/bootstrap.dart';
-import 'package:danapp_doit/core/core.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -19,9 +18,7 @@ Future<void> main() async {
     dotenv.load(fileName: environment),
   ]);
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitDown,
