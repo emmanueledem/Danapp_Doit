@@ -24,6 +24,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const CreateAccountView(),
       );
 
+    case RouteName.loginView:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const LoginView(),
+      );
+    case RouteName.appTabView:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AppTabView(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(

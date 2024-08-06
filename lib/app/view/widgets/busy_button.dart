@@ -2,6 +2,7 @@ import 'package:danapp_doit/app/app.dart';
 import 'package:danapp_doit/core/core.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:logger/web.dart';
 
 class BusyButton extends StatefulWidget {
   const BusyButton({
@@ -32,11 +33,13 @@ class BusyButton extends StatefulWidget {
 class _BusyButtonState extends State<BusyButton> {
   @override
   Widget build(BuildContext context) {
+    Logger().d(widget.deactivate);
+
     return GestureDetector(
       // ignore: use_if_null_to_convert_nulls_to_bools
       onTap: widget.deactivate == true ? null : widget.onpress,
       child: Container(
-        height: widget.height ?? 43,
+        height: widget.height ?? 56,
         width: widget.width ?? double.infinity,
         decoration: BoxDecoration(
           // ignore: use_if_null_to_convert_nulls_to_bools

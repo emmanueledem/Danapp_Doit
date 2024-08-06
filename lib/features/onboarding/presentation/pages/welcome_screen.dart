@@ -185,12 +185,17 @@ class _WelcomeScreenViewState extends State<WelcomeScreenView> {
                   children: [
                     TextRegular(
                       'Already have an account?',
-                      color: AppColors.deactivatedColor,
+                      color: AppColors.grey1,
                     ),
                     const Gap(11),
-                    TextRegular(
-                      'Sign in',
-                      color: AppColors.primaryColor,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteName.loginView);
+                      },
+                      child: TextRegular(
+                        'Sign in',
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   ],
                 ),

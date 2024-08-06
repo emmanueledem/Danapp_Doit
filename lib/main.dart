@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:danapp_doit/app/app.dart';
 import 'package:danapp_doit/bootstrap.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +17,6 @@ Future<void> main() async {
     dotenv.load(fileName: environment),
   ]);
 
-  await Firebase.initializeApp();
-
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
@@ -31,22 +28,11 @@ Future<void> main() async {
 
     Bloc.observer = MyBlocObserver();
 
-    await runZonedGuarded(
-      () async {
-        WidgetsFlutterBinding.ensureInitialized();
-
-        FlutterError.onError = (FlutterErrorDetails details) {
-          catchUnhandledExceptions(details.exception, details.stack);
-        };
-
-        runApp(
-          DevicePreview(
-            enabled: !kReleaseMode,
-            builder: (context) => const App(),
-          ),
-        );
-      },
-      catchUnhandledExceptions,
+    runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => const App(),
+      ),
     );
   });
 }
