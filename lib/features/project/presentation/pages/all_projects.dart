@@ -41,27 +41,33 @@ class _AllProjectsState extends State<AllProjects> {
                       ),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(3),
-                      border: Border.all(
-                        color: AppColors.blue,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteName.createProject);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(3),
+                        border: Border.all(
+                          color: AppColors.blue,
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 7,
-                        horizontal: 19,
-                      ),
-                      child: TextRegular(
-                        'Create Project',
-                        color: AppColors.blue,
-                        fontSize: 9,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 7,
+                          horizontal: 19,
+                        ),
+                        child: TextRegular(
+                          'Create Project',
+                          color: AppColors.blue,
+                          fontSize: 9,
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
+              const Gap(12),
               Expanded(
                 child: ListView(
                   padding: EdgeInsets.zero,
@@ -79,11 +85,14 @@ class _AllProjectsState extends State<AllProjects> {
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return const ProjectsContainer(
+                        return ProjectsContainer(
                           taskName: 'Liberty Pay ',
                           startDate: '27-3-2022',
                           endDate: '27-3-2022',
                           percentage: '40%',
+                          onTap: () {
+                            Navigator.pushNamed(context, RouteName.addTask);
+                          },
                           dContainerColor: AppColors.green2,
                         );
                       },

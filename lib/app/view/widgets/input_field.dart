@@ -166,3 +166,297 @@ class _InputFieldState extends State<InputField> {
     );
   }
 }
+
+class DescriptionInputField extends StatefulWidget {
+  const DescriptionInputField({
+    required this.controller,
+    required this.placeholder,
+    this.label,
+    this.enterPressed,
+    this.fieldFocusNode,
+    this.nextFocusNode,
+    this.additionalNote,
+    this.onChanged,
+    this.maxLength,
+    this.maxLines = 8,
+    this.validationMessage,
+    this.textInputAction = TextInputAction.next,
+    this.textInputType = TextInputType.multiline,
+    this.password = false,
+    this.isReadOnly = false,
+    this.smallVersion = true,
+    this.inputBorder = true,
+    this.inputBackgroundColor = AppColors.white,
+    this.suffix,
+    this.onTap,
+    this.prefix,
+    this.validationColor = AppColors.inputBorderColor,
+    this.prefixSizedBoxWidth = 20,
+    super.key,
+  });
+
+  final TextEditingController controller;
+  final TextInputType? textInputType;
+  final bool password;
+  final bool isReadOnly;
+  final String placeholder;
+  final String? validationMessage;
+  final Function? enterPressed;
+  final bool smallVersion;
+  final bool inputBorder;
+  final FocusNode? fieldFocusNode;
+  final Function? onTap;
+  final FocusNode? nextFocusNode;
+  final TextInputAction textInputAction;
+  final String? additionalNote;
+  final String? label;
+  final double prefixSizedBoxWidth;
+  // ignore: inference_failure_on_function_return_type
+  final Function(String)? onChanged;
+
+  final int? maxLines;
+  final int? maxLength;
+  final Widget? suffix;
+  final Widget? prefix;
+  final Color validationColor;
+  final Color inputBackgroundColor;
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _DescriptionInputFieldState createState() => _DescriptionInputFieldState();
+}
+
+class _DescriptionInputFieldState extends State<DescriptionInputField> {
+  bool? isPassword;
+  double fieldHeight = 48;
+
+  @override
+  void initState() {
+    super.initState();
+    isPassword = widget.password;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        GestureDetector(
+          child: Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              color: widget.inputBackgroundColor,
+              border: Border.all(color: AppColors.grey1),
+            ),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: TextField(
+                    cursorColor: AppColors.primaryColor,
+                    controller: widget.controller,
+                    keyboardType: widget.textInputType,
+                    focusNode: widget.fieldFocusNode,
+                    textInputAction: widget.textInputAction,
+                    onChanged: widget.onChanged,
+                    maxLines: widget.maxLines,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: AppColors.inputtextColor,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: AppFonts.roboto,
+                    ),
+                    obscureText: isPassword!,
+                    readOnly: widget.isReadOnly,
+                    decoration: InputDecoration.collapsed(
+                      hintText: widget.placeholder,
+                      hintStyle: const TextStyle(
+                        fontSize: 12,
+                        color: AppColors.textColor,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: AppFonts.roboto,
+                      ),
+                      // suffix:
+                    ),
+                  ),
+                ),
+                widget.suffix ??
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        isPassword = !isPassword!;
+                      }),
+                      child: widget.password
+                          ? Container(
+                              width: 30,
+                              height: 30,
+                              alignment: Alignment.center,
+                              child: isPassword!
+                                  ? SvgPicture.asset(AppAssets.eye)
+                                  : SvgPicture.asset(
+                                      AppAssets.eyeSlash,
+                                    ),
+                            )
+                          : const SizedBox.shrink(),
+                    ),
+              ],
+            ),
+          ),
+        ),
+        if (widget.validationMessage != null)
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              widget.validationMessage!,
+              style: const TextStyle(
+                color: AppColors.primaryColor,
+                fontSize: 10,
+                fontWeight: FontWeight.w400,
+                fontFamily: AppFonts.roboto,
+              ),
+            ),
+          )
+        else
+          const SizedBox(),
+      ],
+    );
+  }
+}
+
+class SecondaryInputField extends StatefulWidget {
+  const SecondaryInputField({
+    required this.controller,
+    required this.placeholder,
+    this.label,
+    this.enterPressed,
+    this.fieldFocusNode,
+    this.nextFocusNode,
+    this.additionalNote,
+    this.onChanged,
+    this.maxLength,
+    this.maxLines = 1,
+    this.validationMessage,
+    this.textInputAction = TextInputAction.next,
+    this.textInputType = TextInputType.text,
+    this.password = false,
+    this.isReadOnly = false,
+    this.smallVersion = true,
+    this.inputBorder = true,
+    this.inputBackgroundColor = AppColors.white,
+    this.suffix,
+    this.onTap,
+    this.prefix,
+    this.validationColor = AppColors.deactivatedColor,
+    this.prefixSizedBoxWidth = 20,
+    super.key,
+  });
+
+  final TextEditingController controller;
+  final TextInputType? textInputType;
+  final bool password;
+  final bool isReadOnly;
+  final String placeholder;
+  final String? validationMessage;
+  final Function? enterPressed;
+  final bool smallVersion;
+  final bool inputBorder;
+  final FocusNode? fieldFocusNode;
+  final Function? onTap;
+  final FocusNode? nextFocusNode;
+  final TextInputAction textInputAction;
+  final String? additionalNote;
+  final String? label;
+  final double prefixSizedBoxWidth;
+  // ignore: inference_failure_on_function_return_type
+  final Function(String)? onChanged;
+
+  final int? maxLines;
+  final int? maxLength;
+  final Widget? suffix;
+  final Widget? prefix;
+  final Color validationColor;
+  final Color inputBackgroundColor;
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SecondaryInputFieldState createState() => _SecondaryInputFieldState();
+}
+
+class _SecondaryInputFieldState extends State<SecondaryInputField> {
+  bool? isPassword;
+  double fieldHeight = 10;
+
+  @override
+  void initState() {
+    super.initState();
+    isPassword = widget.password;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        GestureDetector(
+          child: Row(
+            children: <Widget>[
+              widget.prefix ?? const SizedBox(),
+              Expanded(
+                child: TextField(
+                  cursorColor: AppColors.primaryColor,
+                  controller: widget.controller,
+                  keyboardType: widget.textInputType,
+                  focusNode: widget.fieldFocusNode,
+                  textInputAction: widget.textInputAction,
+                  onChanged: widget.onChanged,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: AppColors.black,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: AppFonts.roboto,
+                  ),
+                  obscureText: isPassword!,
+                  readOnly: widget.isReadOnly,
+                  decoration: InputDecoration(
+                    hintText: widget.placeholder,
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.grey1),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.grey1),
+                    ),
+                    border: InputBorder.none,
+                    hintStyle: const TextStyle(
+                      fontSize: 14,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: AppFonts.roboto,
+                    ),
+                    // suffix:
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (widget.validationMessage != null)
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              widget.validationMessage!,
+              style: const TextStyle(
+                color: AppColors.primaryColor,
+                fontSize: 10,
+                fontWeight: FontWeight.w400,
+                fontFamily: AppFonts.roboto,
+              ),
+            ),
+          )
+        else
+          const SizedBox(),
+      ],
+    );
+  }
+}

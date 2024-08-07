@@ -141,7 +141,20 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              return const TaskContainer(
+                              return TaskContainer(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    RouteName.editTask,
+                                    arguments: EditTaskParams(
+                                      endDate: '27-3-2022',
+                                      startDate: '27-3-2022',
+                                      tagName: 'Liberty Pay Loan App',
+                                      tagDescription:
+                                          'Lorem ipsum dolor sit amet, conse jose  adipiscing elit. Vestibulum semper  llmauris as lacus, turpis  Lorem ipsum dolor sit amet, conse ',
+                                    ),
+                                  );
+                                },
                                 taskName: 'Liberty Pay Loan App',
                                 startDate: '27-3-2022',
                                 endDate: '27-3-2022',

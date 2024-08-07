@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-class AddTask extends StatefulWidget {
-  const AddTask({super.key});
+class CreateProject extends StatefulWidget {
+  const CreateProject({super.key});
 
   @override
-  State<AddTask> createState() => _AddTaskState();
+  State<CreateProject> createState() => _CreateProjectState();
 }
 
-class _AddTaskState extends State<AddTask> {
+class _CreateProjectState extends State<CreateProject> {
   final _descriptionController = TextEditingController();
   final _taskNameController = TextEditingController();
 
@@ -54,7 +54,7 @@ class _AddTaskState extends State<AddTask> {
                   shrinkWrap: true,
                   children: [
                     TextBold(
-                      'Add task',
+                      'Create Project',
                       fontWeight: FontWeight.w500,
                       color: AppColors.black1,
                     ),
@@ -63,17 +63,30 @@ class _AddTaskState extends State<AddTask> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
-                        TextRegular(
-                          'Task Name',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.grey1,
+                        Row(
+                          children: [
+                            Image.asset(AppAssets.projectLargeIcon),
+                            const Gap(15),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextRegular(
+                                    'Task Name',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.grey1,
+                                  ),
+                                  SecondaryInputField(
+                                    controller: _taskNameController,
+                                    placeholder: '',
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                        SecondaryInputField(
-                          controller: _taskNameController,
-                          placeholder: '',
-                        ),
-                        const Gap(24),
+                        const Gap(46),
                         Row(
                           children: [
                             dateContainer(
@@ -113,7 +126,7 @@ class _AddTaskState extends State<AddTask> {
                         ),
                         const Gap(24),
                         TextRegular(
-                          'Assign Task:',
+                          'Add Staffs:',
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           color: AppColors.grey1,
@@ -236,9 +249,9 @@ class _AddTaskState extends State<AddTask> {
                         ),
                         const Gap(50),
                         BusyButton(
-                          title: 'Add task',
+                          title: 'Create Project',
                           onpress: () {
-                            Navigator.pushNamed(context, RouteName.allTasks);
+                            Navigator.pushNamed(context, RouteName.allProjects);
                           },
                         ),
                       ],

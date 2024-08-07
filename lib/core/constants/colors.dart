@@ -13,6 +13,7 @@ class AppColors {
   static const light2 = Color(0x0DC4C4C4);
   static const black = Color(0xFF000000);
   static const black1 = Color(0xff000000);
+  static const black3 = Color(0xff373737);
   static const textColor = Color(0xFF0E0E0E);
   static const deactivatedColor = Color(0xffDADADA);
   static const grey = Color(0xffF4F4F6);

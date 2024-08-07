@@ -16,7 +16,6 @@ class AppAssets {
   static const homeFill = 'assets/icons/home_fill.svg';
   static const biometric = 'assets/icons/biometric.svg';
   static const notifications = 'assets/icons/notifications.svg';
-
   static const homeCompletedTaskIcon =
       'assets/icons/home_completed_task_icon.svg';
   static const homeOverdueTaskIcon = 'assets/icons/home_overdue_task_icon.svg';
@@ -27,4 +26,12 @@ class AppAssets {
   static const userImage2 = 'assets/images/user_image2.png';
   static const userImage3 = 'assets/images/user_image3.png';
   static const projectLogo = 'assets/images/project_logo.png';
+  static const assignUser1 = 'assets/images/assign_user1.png';
+  static const assignUser2 = 'assets/images/assign_user2.png';
+  static const add = 'assets/icons/add.svg';
+  static const tagUnion = 'assets/icons/tag_union.svg';
+  static const tagUnion2 = 'assets/icons/tag_union_2.svg';
+  static const tagUnion3 = 'assets/icons/tag_union_3.svg';
+  static const formCalendar = 'assets/icons/form_calendar.svg';
+  static const projectLargeIcon = 'assets/images/project_large_icon.png';
 }

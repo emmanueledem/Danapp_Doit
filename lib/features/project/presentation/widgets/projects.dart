@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ProjectsContainer extends StatelessWidget {
   const ProjectsContainer({
@@ -12,6 +11,7 @@ class ProjectsContainer extends StatelessWidget {
     required this.startDate,
     required this.endDate,
     required this.percentage,
+    required this.onTap,
     this.dContainerColor = AppColors.primaryColor,
     super.key,
   });
@@ -20,6 +20,7 @@ class ProjectsContainer extends StatelessWidget {
   final String endDate;
   final Color dContainerColor;
   final String percentage;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -120,22 +121,25 @@ class ProjectsContainer extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    border: Border.all(
-                      color: AppColors.blue,
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(3),
+                      border: Border.all(
+                        color: AppColors.blue,
+                      ),
                     ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 7,
-                      horizontal: 12,
-                    ),
-                    child: TextRegular(
-                      'Add Task',
-                      color: AppColors.blue,
-                      fontSize: 9,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 7,
+                        horizontal: 12,
+                      ),
+                      child: TextRegular(
+                        'Add Task',
+                        color: AppColors.blue,
+                        fontSize: 9,
+                      ),
                     ),
                   ),
                 ),

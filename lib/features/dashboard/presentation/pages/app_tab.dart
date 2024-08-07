@@ -51,7 +51,9 @@ class AppTabViewState extends State<AppTabView> {
       extendBody: true,
       floatingActionButton: _selectedIndex == 0
           ? FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, RouteName.createProject);
+              },
               backgroundColor: AppColors.blue,
               shape: const CircleBorder(),
               child: const Icon(

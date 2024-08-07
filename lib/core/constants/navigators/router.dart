@@ -47,6 +47,27 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const AllProjects(),
       );
 
+    case RouteName.addTask:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AddTask(),
+      );
+
+    case RouteName.editTask:
+      final args = settings.arguments as EditTaskParams;
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: EditTask(
+          params: args,
+        ),
+      );
+
+    case RouteName.createProject:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: CreateProject(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(
