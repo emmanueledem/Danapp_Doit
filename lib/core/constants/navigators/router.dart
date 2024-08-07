@@ -65,7 +65,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RouteName.createProject:
       return _getPageRoute(
         routeName: settings.name!,
-        viewToShow: CreateProject(),
+        viewToShow: const CreateProject(),
       );
 
     default:
