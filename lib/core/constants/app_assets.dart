@@ -34,4 +34,7 @@ class AppAssets {
   static const tagUnion3 = 'assets/icons/tag_union_3.svg';
   static const formCalendar = 'assets/icons/form_calendar.svg';
   static const projectLargeIcon = 'assets/images/project_large_icon.png';
+  static const flagGhana = 'assets/images/flag_ghana.png';
+  static const flagNigeria = 'assets/images/flag_nigeria.png';
+  static const arrowDown = 'assets/icons/arrow_down.svg';
 }

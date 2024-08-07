@@ -33,8 +33,6 @@ class BusyButton extends StatefulWidget {
 class _BusyButtonState extends State<BusyButton> {
   @override
   Widget build(BuildContext context) {
-    Logger().d(widget.deactivate);
-
     return GestureDetector(
       // ignore: use_if_null_to_convert_nulls_to_bools
       onTap: widget.deactivate == true ? null : widget.onpress,

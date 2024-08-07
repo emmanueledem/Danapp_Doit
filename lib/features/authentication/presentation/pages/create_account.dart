@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:danapp_doit/app/app.dart';
 import 'package:danapp_doit/app/view/widgets/input_field.dart';
 import 'package:danapp_doit/core/core.dart';
+import 'package:danapp_doit/features/authentication/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:logger/web.dart';
 
 class CreateAccountView extends StatefulWidget {
   const CreateAccountView({super.key});
@@ -18,14 +18,17 @@ class CreateAccountView extends StatefulWidget {
 class _CreateAccountViewState extends State<CreateAccountView> {
   final _nameFocus = FocusNode();
   final _emailFocus = FocusNode();
+  final _mobileNumberFocus = FocusNode();
   final _passwordFocus = FocusNode();
 
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  final _mobileNumberController = TextEditingController();
   final _passwordController = TextEditingController();
 
   late StreamController<String> passwordStreamController;
   late StreamController<String> emailStreamController;
+  late StreamController<String> mobileNumberStreamController;
   late StreamController<String> nameStreamController;
 
   final ValueNotifier<bool> _canSubmit = ValueNotifier(false);
@@ -40,6 +43,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
     nameStreamController = StreamController<String>.broadcast();
     emailStreamController = StreamController<String>.broadcast();
     passwordStreamController = StreamController<String>.broadcast();
+    mobileNumberStreamController = StreamController<String>.broadcast();
 
     _nameController.addListener(() {
       nameStreamController.sink.add(_nameController.text.trim());
@@ -50,6 +54,13 @@ class _CreateAccountViewState extends State<CreateAccountView> {
       emailStreamController.sink.add(_emailController.text.trim());
       validateInputs();
     });
+
+    _mobileNumberController.addListener(() {
+      mobileNumberStreamController.sink
+          .add(_mobileNumberController.text.trim());
+      validateInputs();
+    });
+
     _passwordController.addListener(() {
       passwordStreamController.sink.add(_passwordController.text.trim());
       validateInputs();
@@ -74,10 +85,17 @@ class _CreateAccountViewState extends State<CreateAccountView> {
       'email is required',
     );
 
-    if (passwordError != '' || nameError != '' || emailError != '') {
+    final mobileError = CustomFormValidation.errorMessage(
+      _mobileNumberController.text.trim(),
+      'Mobile Number is required',
+    );
+
+    if (passwordError != '' ||
+        nameError != '' ||
+        emailError != '' ||
+        mobileError != '') {
       canSubmit = false;
     }
-    Logger().d(canSubmit);
     _canSubmit.value = canSubmit;
   }
 
@@ -88,6 +106,8 @@ class _CreateAccountViewState extends State<CreateAccountView> {
     emailStreamController.close();
     nameStreamController.close();
   }
+
+  String? selectedCountry;
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +208,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         );
                       },
                     ),
-                    const Gap(20),
+                    const Gap(15),
                     StreamBuilder<String>(
                       stream: emailStreamController.stream,
                       builder: (context, snapshot) {
@@ -211,7 +231,68 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         );
                       },
                     ),
-                    const Gap(20),
+                    const Gap(15),
+                    StreamBuilder<String>(
+                      stream: mobileNumberStreamController.stream,
+                      builder: (context, snapshot) {
+                        return InputField(
+                          controller: _mobileNumberController,
+                          placeholder: 'Mobile Number',
+                          suffix: GestureDetector(
+                            child: GestureDetector(
+                              onTap: () {
+                                // ignore: inference_failure_on_function_invocation
+                                showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  builder: (context) {
+                                    return CountryList(
+                                      callBack: (country) {
+                                        setState(() {
+                                          selectedCountry = country;
+                                        });
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                              child: Row(
+                                children: [
+                                  if (selectedCountry == 'gh')
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.asset(
+                                        AppAssets.flagGhana,
+                                        height: 40,
+                                        width: 35,
+                                      ),
+                                    )
+                                  else
+                                    selectedCountry == 'ng'
+                                        ? Image.asset(AppAssets.flagNigeria)
+                                        : Image.asset(AppAssets.flagNigeria),
+                                  const Gap(4),
+                                  SvgPicture.asset(AppAssets.arrowDown),
+                                ],
+                              ),
+                            ),
+                          ),
+                          validationMessage: CustomFormValidation.errorMessage(
+                            snapshot.data,
+                            'Mobile Number is required*',
+                          ),
+                          validationColor: CustomFormValidation.getColor(
+                            snapshot.data,
+                            _mobileNumberFocus,
+                            CustomFormValidation.errorMessage(
+                              snapshot.data,
+                              'Mobile Number is required*',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    const Gap(15),
                     StreamBuilder<String>(
                       stream: passwordStreamController.stream,
                       builder: (context, snapshot) {
@@ -246,7 +327,6 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         return BusyButton(
                           title: 'Create account',
                           onpress: () {
-                            Logger().d('message');
                             Navigator.pushNamed(
                               context,
                               RouteName.loginView,
