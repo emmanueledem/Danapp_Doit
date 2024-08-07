@@ -35,6 +35,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const AppTabView(),
       );
 
+    case RouteName.allTasks:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AllTasks(),
+      );
+
+    case RouteName.allProjects:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AllProjects(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:danapp_doit/app/app.dart';
 import 'package:danapp_doit/bootstrap.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,10 +20,10 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]).then((_) async {
-    void catchUnhandledExceptions(Object error, StackTrace? stack) {
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      debugPrintStack(stackTrace: stack, label: error.toString());
-    }
+    // void catchUnhandledExceptions(Object error, StackTrace? stack) {
+    //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    //   debugPrintStack(stackTrace: stack, label: error.toString());
+    // }
 
     Bloc.observer = MyBlocObserver();
 

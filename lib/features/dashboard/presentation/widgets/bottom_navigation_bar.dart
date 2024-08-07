@@ -2,7 +2,6 @@ import 'package:danapp_doit/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:logger/web.dart';
 
 class FABBottomAppBar extends StatefulWidget {
   const FABBottomAppBar({

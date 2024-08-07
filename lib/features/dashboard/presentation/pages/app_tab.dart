@@ -43,22 +43,24 @@ class AppTabViewState extends State<AppTabView> {
   Widget build(BuildContext context) {
     final widgetOptions = <Widget?>[
       const HomeScreenView(),
-      const SizedBox(),
+      const AllProjects(),
       const SizedBox(),
     ];
 
     return Scaffold(
       extendBody: true,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppColors.blue,
-        shape: const CircleBorder(),
-        child: const Icon(
-          Icons.add,
-          color: AppColors.white,
-          size: 40,
-        ),
-      ),
+      floatingActionButton: _selectedIndex == 0
+          ? FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: AppColors.blue,
+              shape: const CircleBorder(),
+              child: const Icon(
+                Icons.add,
+                color: AppColors.white,
+                size: 40,
+              ),
+            )
+          : const SizedBox(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: widgetOptions.elementAt(_selectedIndex!),
       bottomNavigationBar: FABBottomAppBar(

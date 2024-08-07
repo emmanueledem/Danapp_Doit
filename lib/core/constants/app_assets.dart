@@ -26,4 +26,5 @@ class AppAssets {
   static const userImage1 = 'assets/images/user_image1.png';
   static const userImage2 = 'assets/images/user_image2.png';
   static const userImage3 = 'assets/images/user_image3.png';
+  static const projectLogo = 'assets/images/project_logo.png';
 }
