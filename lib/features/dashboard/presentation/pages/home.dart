@@ -19,6 +19,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
       body: SafeArea(
         child: Column(
           children: [
+            const Gap(20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Row(

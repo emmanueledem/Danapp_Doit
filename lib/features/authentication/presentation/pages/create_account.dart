@@ -215,6 +215,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         return InputField(
                           controller: _emailController,
                           placeholder: 'Email',
+                          textInputType: TextInputType.emailAddress,
                           validationMessage:
                               CustomFormValidation.errorEmailMessage(
                             snapshot.data,

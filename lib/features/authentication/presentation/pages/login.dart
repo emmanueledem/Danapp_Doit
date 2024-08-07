@@ -80,21 +80,23 @@ class _LoginViewState extends State<LoginView> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.grey),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(AppAssets.backIcon),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.grey),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: SvgPicture.asset(AppAssets.backIcon),
+                    ),
                   ),
                 ),
               ),
@@ -132,6 +134,7 @@ class _LoginViewState extends State<LoginView> {
                 stream: emailStreamController.stream,
                 builder: (context, snapshot) {
                   return InputField(
+                    textInputType: TextInputType.emailAddress,
                     controller: _emailController,
                     placeholder: 'Email',
                     validationMessage: CustomFormValidation.errorEmailMessage(

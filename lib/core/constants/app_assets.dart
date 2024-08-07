@@ -37,4 +37,8 @@ class AppAssets {
   static const flagGhana = 'assets/images/flag_ghana.png';
   static const flagNigeria = 'assets/images/flag_nigeria.png';
   static const arrowDown = 'assets/icons/arrow_down.svg';
+  static const progessIcon = 'assets/icons/progess_icon.svg';
+
+
+  
 }

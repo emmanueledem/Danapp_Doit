@@ -80,12 +80,8 @@ class ProjectsContainer extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        SvgPicture.asset(
-                          AppAssets.orangeDate,
-                        ),
-                        const Gap(8),
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextRegular(
                               'Start',

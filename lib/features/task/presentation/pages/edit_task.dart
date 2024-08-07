@@ -45,20 +45,320 @@ class _EditTaskState extends State<EditTask> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.grey, width: 2),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: AppColors.grey, width: 2),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: SvgPicture.asset(AppAssets.backIcon),
+                      ),
+                    ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(AppAssets.backIcon),
+                  PopupMenuButton(
+                    constraints: const BoxConstraints(
+                      minWidth: 230,
+                      maxWidth: 230,
+                    ),
+                    color: AppColors.white,
+                    surfaceTintColor: AppColors.white,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    child: const Icon(Icons.more_vert_rounded),
+                    itemBuilder: (_) => <PopupMenuItem<String>>[
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                            top: 16,
+                            bottom: 31,
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  TextRegular(
+                                    'Progress %',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.grey6,
+                                  ),
+                                  SvgPicture.asset(
+                                    AppAssets.progessIcon,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '10%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '20%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '30%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '40%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '50%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '60%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '70%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '80%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: AppColors.grey7,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TextRegular(
+                                '90%',
+                                color: AppColors.grey6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Clear_All',
+                        onTap: () async {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 15),
+                            child: TextRegular(
+                              '100%',
+                              color: AppColors.grey6,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                ],
               ),
               const Gap(12),
               Expanded(
