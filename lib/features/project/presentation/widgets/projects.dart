@@ -2,7 +2,6 @@ import 'package:danapp_doit/app/app.dart';
 import 'package:danapp_doit/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class ProjectsContainer extends StatelessWidget {
@@ -98,7 +97,7 @@ class ProjectsContainer extends StatelessWidget {
                         ),
                         const Gap(14),
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextRegular(
                               'End',

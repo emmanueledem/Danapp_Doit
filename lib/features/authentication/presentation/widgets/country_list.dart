@@ -43,7 +43,6 @@ class _CountryListState extends State<CountryList> {
                       TextRegular(
                         'Nigeria',
                         color: AppColors.black1,
-                        fontSize: 10,
                       ),
                       const Spacer(),
                     ],
@@ -65,7 +64,6 @@ class _CountryListState extends State<CountryList> {
                       TextRegular(
                         'Ghana',
                         color: AppColors.black1,
-                        fontSize: 10,
                       ),
                       const Spacer(),
                     ],
