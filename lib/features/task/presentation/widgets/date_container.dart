@@ -39,11 +39,13 @@ Widget dateContainer({
                     // ignore: deprecated_member_use
                     color: AppColors.textColor,
                   ),
+                  const Gap(8.07),
                   TextRegular(
                     dateText,
                     fontWeight: FontWeight.w500,
                     color: AppColors.grey5,
                   ),
+                  const Spacer(),
                 ],
               ),
             ),

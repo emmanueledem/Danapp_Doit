@@ -388,6 +388,7 @@ class _EditTaskState extends State<EditTask> {
                         ),
                         const Gap(24),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             dateContainer(
                               purpose: 'Created (from)',
